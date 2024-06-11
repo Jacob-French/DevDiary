@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Responsive Web Design</title>
+
+        <style>
+            
+            /*Style the scrollbar*/
+            ::-webkit-scrollbar {
+                width: 12px; /* for vertical scrollbar */
+                height: 12px; /* for horizontal scrollbar */
+            }
+            ::-webkit-scrollbar-track {
+                background: #2c2c2c;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #3e3e3e;
+                border-radius: 6px;
+            }
+            ::-webkit-scrollbar-corner {
+                background: #2c2c2c;
+            }
+
+            body{
+                margin: 0px;
+                padding: 10px;
+            }
+            
+            .header{
+                background-color: rgb(61, 99, 101);
+                padding: 15px;
+            }
+
+            .content{
+                background-color: #485877;
+                padding: 20px;
+                margin-top: 10px;
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                grid-template-rows: auto auto auto auto;
+            }
+
+            .content > div{
+                background-color: rgb(105, 101, 143);
+                width: 450px;
+                height: 240px;
+                margin-bottom: 20px;
+            }
+
+            #div1{
+                grid-column: 1 / span 4;
+                grid-row: 1;
+                align-self: center;
+                justify-self: center;
+            }
+            #div2{
+                grid-column: 1 / span 4;
+                grid-row: 2;
+                align-self: center;
+                justify-self: center;
+            }
+            #div3{
+                grid-column: 1 / span 4;
+                grid-row: 3;
+                align-self: center;
+                justify-self: center;
+            }
+            #div4{
+                grid-column: 1 / span 4;
+                grid-row: 4;
+                align-self: center;
+                justify-self: center;
+            }
+
+            footer{
+                background-color: #554b67;
+                padding: 100px;
+                margin-top: 10px;
+            }
+
+            h1{
+                text-align: center;
+                font-family: 'Courier New', Courier, monospace;
+                color: rgb(183, 183, 183);
+            }
+
+            h2{
+                text-align: center;
+                font-family: 'Courier New', Courier, monospace;
+                color: rgb(206, 206, 206);
+            }
+
+            p{
+                margin-top: 40px;
+                text-align: center;
+                font-family: 'Courier New', Courier, monospace;
+                color: rgb(207, 207, 207);
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.589);
+                font-size: 14px;
+            }
+
+            .grid-container{
+                display: grid;
+                grid-template-columns: auto auto auto;
+                grid-template-rows: auto auto auto;
+                margin-top: 10px;
+                column-gap: 10px;
+                row-gap: 10px;
+            }
+
+            .grid_item{
+                height: 300px;
+            }
+
+            /*Mobile layout first*/
+            #grid_item1{
+                grid-column: 1 / span 3; 
+                grid-row: 1;
+                background-color: #4b6260;
+            }
+            #grid_item2{
+                grid-column: 1 / span 3; 
+                grid-row: 2;
+                background-color: #465153;
+            }
+            #grid_item3{
+                grid-column: 1 / span 3; 
+                grid-row: 3;
+                background-color: #444c53;
+            }
+
+            /*Tablet layout*/
+            @media only screen and (min-width: 700px){
+                
+                .grid-container{
+                    grid-template-columns: 50% 50%;
+                    grid-template-rows: auto auto;
+                }
+
+                #grid_item1{
+                    grid-column: 1;
+                    grid-row: 1;
+                }
+                #grid_item2{
+                    grid-column: 2;
+                    grid-row: 1;
+                }
+                #grid_item3{
+                    grid-row: 2;
+                }
+
+                #div1{
+                grid-column: 1 / span 2;
+                grid-row: 1;
+                align-self: center;
+                justify-self: center;
+                }
+                #div2{
+                    grid-column: 3 / span 2;
+                    grid-row: 1;
+                    align-self: center;
+                    justify-self: center;
+                }
+                #div3{
+                    grid-column: 1 / span 2;
+                    grid-row: 2;
+                    align-self: center;
+                    justify-self: center;
+                }
+                #div4{
+                    grid-column: 3 / span 2;
+                    grid-row: 2;
+                    align-self: center;
+                    justify-self: center;
+                }
+
+                .content > div{
+                    width: 300px;
+                }
+            }
+
+            /*Computer layout*/
+            @media only screen and (min-width: 1080px){
+                .grid-container{
+                    grid-template-columns: auto auto auto;
+                    grid-template-rows: auto;
+                }
+
+                #grid_item1{
+                    grid-column: 1;
+                    grid-row: 1;
+                    padding: 5px;
+                }
+                #grid_item2{
+                    grid-column: 2;
+                    grid-row: 1;
+                    padding: 5px;
+                }
+                #grid_item3{
+                    grid-column: 3;
+                    grid-row: 1;
+                    padding: 5px;
+                }
+
+                #div1{
+                grid-column: 1;
+                grid-row: 1;
+                align-self: center;
+                justify-self: center;
+                }
+                #div2{
+                    grid-column: 2;
+                    grid-row: 1;
+                    align-self: center;
+                    justify-self: center;
+                }
+                #div3{
+                    grid-column: 3;
+                    grid-row: 1;
+                    align-self: center;
+                    justify-self: center;
+                }
+                #div4{
+                    grid-column: 4;
+                    grid-row: 1;
+                    align-self: center;
+                    justify-self: center;
+                }
+
+                .content{
+                    
+                }
+
+                .content > div{
+                    width: 250px;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Title</h1>
+        </div>
+        <div class="grid-container">
+            <div id="grid_item1" class="grid_item">
+                <p>
+                    Responsive design, a dance so grand, <br>
+                    A website’s charm in every hand. <br>
+                    Adapts and shifts with grace and ease, <br>
+                    Embracing screens, its art to please. <br>
+                </p>
+            </div>
+            <div id="grid_item2" class="grid_item">
+                <p>
+                    From smallest phone to widescreen view, <br>
+                    Fluid, seamless, fresh and new. <br>
+                    A masterpiece of code and sight, <br>
+                    In every form, it feels just right. <br>
+                </p>
+            </div>
+            <div id="grid_item3" class="grid_item">
+                <p>
+                    No pinching, zooming, awkward scroll, <br>
+                    A perfect fit, from edge to whole. <br>
+                    The user’s joy, a web divine, <br>
+                    Responsive design, a craft so fine. <br>
+                </p>
+            </div>
+        </div>
+        <div class="content">
+            <div id="div1"></div> <div id="div2"></div> <div id="div3"></div> <div id="div4"></div>
+        </div>
+        <footer>
+            <h2>Footer</h2>
+        </footer>
+    </body>
+</html>

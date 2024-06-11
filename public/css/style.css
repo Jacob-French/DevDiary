@@ -1,0 +1,207 @@
+
+
+/*Variables*/
+:root {
+    --active_color: #ff82c9;
+    --dark_background: #1c1c1c;
+}
+
+#nav_list li{
+    list-style-type: none;
+    font-size: 18px;
+}
+
+#nav_button{
+    display: none;
+}
+
+#nav_icon{
+    color: white;
+    float: right;
+    font-size: 40px;
+    margin: 5px;
+
+    /*stop icon from being selected*/
+    user-select: none; /* Standard syntax */
+      -webkit-user-select: none; /* Chrome, Safari, Opera */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+#nav_button:checked ~ #nav_list{
+    display: flex;
+}
+
+#nav_button:checked ~ label > #nav_icon{
+    color: #ff82c9;
+}
+
+.active_page{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--active_color);
+
+}
+
+.checkbox_empty{
+    display: none;
+}
+
+.milestone:hover{
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.427);
+    cursor: pointer;
+}
+
+.menu_heading{
+    font-family: "Source Sans 3", sans-serif;
+    color: rgb(173, 173, 173);
+    margin-left: 20px;
+    font-size: 9px;
+    display: none;
+}
+
+.milestone{
+    width: 100px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: rgba(255, 255, 255, 0.121);
+
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    flex: 0 0 55px;
+
+    /*stop icon from being selected*/
+    user-select: none; /* Standard syntax */
+      -webkit-user-select: none; /* Chrome, Safari, Opera */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.milestone > svg{
+    width: 30px;
+}
+
+.milestone > input{
+    display: none;
+}
+
+#logo_wrapper{
+    border-style: none;
+    border-width: 2px;
+    border-color: red;
+    width: 300px;
+}
+
+.logo{
+    margin-top: 5px;
+}
+
+body, html{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+.nav_link{
+    color: white;
+    font-family: "Source Sans 3", sans-serif;
+    text-decoration: none;
+    font-weight: 200;
+}
+
+/* Width and height of the scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* for vertical scrollbar */
+    height: 12px; /* for horizontal scrollbar */
+}
+
+/* Background of the scrollbar track */
+::-webkit-scrollbar-track {
+    background: #1c1c1c;
+}
+
+/* Background of the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background: #272727;
+    border-radius: 6px;
+}
+
+h2{
+    font-family: "Source Sans 3", sans-serif;
+    color: rgb(173, 173, 173);
+    margin-left: 20px;
+    font-weight: bolder;
+    font-size: 16px;
+}
+
+p{
+    font-family: "Source Sans 3", sans-serif;
+    color: rgb(173, 173, 173);
+}
+
+.ui_arrow{
+    color: rgb(173, 173, 173);
+    right: 10px;
+    grid-column: 2;
+    justify-self: end;
+    align-self: center;
+    transform: rotate(180deg);
+    margin-right: 10px;
+}
+
+.panel_header{
+    font-family: "Oxygen", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: rgb(234, 234, 234);
+}
+
+.panel_head{
+    background-color: #303030;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    display: block;
+    position: relative;
+    width: 100%;
+    border-style: solid;
+    border-color:#1c1c1c00;
+    box-sizing: border-box;
+}
+
+.panel_content{
+    padding: 10px;
+}
+
+.link_header{
+    font-size: 14px;
+    font-family: "Source Sans 3", sans-serif;
+    color: rgb(173, 173, 173);
+    margin: 0;
+}
+
+.link{
+    font-family: "Source Sans 3", sans-serif;
+    color: rgb(173, 173, 173);
+    font-size: 12px;
+    margin: 0;
+}
+
+.icon_box{
+    width: 200px;
+    height: 20px;
+    float: right;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon_small{
+    margin: 2px;
+    flex: 0, 0, 15px;
+}
+
+a{
+    text-decoration: none;
+}

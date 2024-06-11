@@ -1,0 +1,84 @@
+<!DOCTYPE html> <!-- Tells the browser we are using html 5 -->
+
+<html lang="en-AU"> <!-- A language and country code us used to inform the browser of language and country of the document -->
+    <head>
+        <title>Stars</title>
+
+        <!-- Add an icon to the title of the page -->
+        <link rel="icon" type="image/x-icon" href="favicons/ico/favicon.ico">
+
+        <style>
+            h1, h2, h3, p, hr, th, blockquote{
+                color:rgb(194, 194, 194);
+            }
+
+            blockquote{
+                width: 400px;
+            }
+
+            /* Width and height of the scrollbar */
+            ::-webkit-scrollbar {
+                width: 12px; /* for vertical scrollbar */
+                height: 12px; /* for horizontal scrollbar */
+            }
+
+            /* Background of the scrollbar track */
+            ::-webkit-scrollbar-track {
+                background: #2c2c2c;
+            }
+
+            /* Background of the scrollbar thumb */
+            ::-webkit-scrollbar-thumb {
+                background: #3e3e3e;
+                border-radius: 6px;
+            }
+
+            /* Corner styling */
+            ::-webkit-scrollbar-corner {
+                background: #2c2c2c;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>A Guide to Stars</h1>
+        <hr>
+
+        <h2>What Are They?</h2>
+        <p>Stars are fascinating celestial objects that illuminate our 
+            night sky with their brilliant light. These massive spheres 
+            of burning gas, primarily composed of hydrogen and helium, 
+            generate energy through nuclear fusion in their cores. This 
+            process not only provides the light and heat we see but also 
+            produces the heavier elements that make up planets and life 
+            itself. From the smallest red dwarfs to the largest 
+            supergiants, stars come in a variety of sizes, colors, 
+            and stages of evolution. Studying stars helps us understand 
+            the universe's history, the life cycles of these incredible 
+            objects, and our own place in the cosmos.
+        </p>
+
+        <!-- Star types are arranged as a table of titles and images -->
+        <h2>Types of Stars</h2>
+        <table>
+            <tr>
+                <th>Blue Star</th>
+                <th>Red Dwarf</th>
+                <th>White Dwarf</th>
+                <th>Neutron Star</th>
+            </tr>
+            <tr>
+                <td><img src="images/blue_star.png" alt="Image of blue star" width="200" height="200"></td>
+                <td><img src="images/red_dwarf.png" alt="Image of red dwarf" width="200" height="200"></td>
+                <td><img src="images/white_dwarf.png" alt="Image of white dwarf" width="200" height="200"></td>
+                <td><img src="images/neutron_star.png" alt="Image of neutron star" width="200" height="200"></td>
+            </tr>
+        </table>
+
+        <p>Stephen Hawking</p>
+        <blockquote cite="https://www.brainyquote.com/topics/stars-quotes">
+            Look up at the stars and not down at your feet. Try to make sense of what you see, and wonder about what makes the universe exist. Be curious.
+        </blockquote>
+
+    </body>
+</html>

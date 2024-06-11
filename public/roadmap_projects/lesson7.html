@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+    <head>
+        <title>Calculator</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/13.0.0/math.js" integrity="sha512-YwFcgvV5CtE1kAnYDaIfoeydQnjRd/9YvYvi4MtRuFGAYVilHTD8qvvHrI/IJ7umguCooEUfctGo/9EKqdd1OA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <style>
+            :root{
+                --darkBackground: rgb(15, 15, 24);
+                --highlight1: rgb(26, 26, 42);
+                --highlight2: rgb(15, 15, 24);
+                --highlight3: rgb(41, 41, 56);
+                --special: rgb(61, 29, 64);
+                --errorColor: rgb(105, 52, 52);
+            }
+
+            html{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                background-image: radial-gradient(circle,rgb(0, 0, 0), rgb(17, 2, 28));
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                padding: 0;
+            }
+
+            #calculator{
+                width: 500px;
+                height: 60vh;
+                background-color: rgb(0, 0, 0);
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(242, 87, 253, 0.232);
+                overflow: hidden;
+                padding: 10px;
+                animation-name: boxShadowAnimation;
+                animation-duration: 60s;
+                animation-direction: alternate;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes boxShadowAnimation{
+                0% {box-shadow: 0 0 10px rgba(242, 87, 253, 0.232);}
+                25% {box-shadow: 0 0 10px rgba(253, 87, 120, 0.232);}
+                50% {box-shadow: 0 0 10px rgba(253, 117, 87, 0.232);}
+                75% {box-shadow: 0 0 10px rgba(131, 87, 253, 0.232);}
+                100% {box-shadow: 0 0 10px rgba(253, 87, 231, 0.232);}
+            }
+
+            #display{
+                width: 100%;
+                height: 15%;
+                box-sizing: border-box;
+                background-color: var(--darkBackground);
+                border-radius: 10px;
+                border-style: none;
+                color: rgb(168, 168, 168);
+                pointer-events: none;
+                font-family: "Montserrat", sans-serif;
+                font-weight: 600;
+                font-size: 1.4em;
+                padding-left: 10px;
+                letter-spacing: 2px;
+                padding-top: 10px;
+            }
+
+            #keys{
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                column-gap: 5px;
+                row-gap: 5px;
+                height: 85%;
+                box-sizing: border-box;
+                padding-top: 10px;
+            }
+
+            button{
+                font-family: "Montserrat", sans-serif;
+                font-weight: 900;
+                background-color: var(--darkBackground);
+                color: rgb(168, 168, 168);
+                border-style: none;
+                border-radius: 10px;
+                font-size: 1em;
+                transition: transform 0.1s;
+                cursor: pointer;
+            }
+
+            .b1{
+                background-color: var(--highlight1);
+            }
+            .b2{
+                background-color: var(--highlight2);
+            }
+            .b3{
+                background-color: var(--highlight3);
+                font-size: 1.3em;
+            }
+            .buttonSpecial{
+                background-color: var(--special);
+                font-size: 1.3em;
+            }
+
+            button:hover{
+                transform: scale(0.95);
+            }
+            button:active{
+                transform: scale(0.9);
+            }
+
+            .errorText{
+                color: var(--errorColor);
+                font-size: 0.8em;
+            }
+
+            .i1{
+                color: red;
+                animation-name: infinityAnimation1;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            .i2{
+                animation-name: infinityAnimation2;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            .i3{
+                animation-name: infinityAnimation3;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            .i4{
+                animation-name: infinityAnimation4;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            .i5{
+                animation-name: infinityAnimation5;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            .i6{
+                animation-name: infinityAnimation6;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            .i7{
+                animation-name: infinityAnimation7;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            .i8{
+                animation-name: infinityAnimation8;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+
+            @keyframes infinityAnimation1{
+                0% {color: rgb(255, 17, 0);}
+                25% {color: rgb(255, 0, 225);}
+                50% {color: rgb(255, 208, 0);}
+                75% {color: rgb(0, 208, 255);}
+                100% {color: rgb(149, 255, 0);}
+            }
+            @keyframes infinityAnimation2{
+                0% {color: rgb(255, 0, 242);}
+                25% {color: rgb(0, 255, 17);}
+                50% {color: rgb(149, 0, 255);}
+                75% {color: rgb(255, 255, 0);}
+                100% {color: rgb(255, 0, 0);}
+            }
+            @keyframes infinityAnimation3{
+                0% {color: rgb(60, 255, 0);}
+                25% {color: rgb(195, 0, 255);}
+                50% {color: rgb(255, 136, 0);}
+                75% {color: rgb(255, 0, 111);}
+                100% {color: rgb(0, 102, 255);}
+            }
+            @keyframes infinityAnimation4{
+                0% {color: rgb(255, 0, 234);}
+                25% {color: rgb(144, 0, 255);}
+                50% {color: rgb(0, 72, 255);}
+                75% {color: rgb(255, 247, 0);}
+                100% {color: rgb(149, 255, 0);}
+            }
+            @keyframes infinityAnimation5{
+                0% {color: rgb(255, 200, 0);}
+                25% {color: rgb(144, 0, 255);}
+                50% {color: rgb(30, 255, 0);}
+                75% {color: rgb(179, 0, 255);}
+                100% {color: rgb(255, 102, 0);}
+            }
+            @keyframes infinityAnimation6{
+                0% {color: rgb(60, 255, 0);}
+                25% {color: rgb(195, 0, 255);}
+                50% {color: rgb(255, 136, 0);}
+                75% {color: rgb(255, 0, 111);}
+                100% {color: rgb(0, 102, 255);}
+            }
+            @keyframes infinityAnimation7{
+                0% {color: rgb(255, 0, 242);}
+                25% {color: rgb(0, 255, 17);}
+                50% {color: rgb(149, 0, 255);}
+                75% {color: rgb(255, 255, 0);}
+                100% {color: rgb(255, 0, 0);}
+            }
+            @keyframes infinityAnimation8{
+                0% {color: rgb(255, 0, 234);}
+                25% {color: rgb(144, 0, 255);}
+                50% {color: rgb(0, 72, 255);}
+                75% {color: rgb(255, 247, 0);}
+                100% {color: rgb(149, 255, 0);}
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div id="calculator">
+            <div id="display"></div>
+            <div id="keys">
+                <button class="b2" onclick="keyInput(0)">Sin</button>
+                <button class="b2" onclick="keyInput(1)">&pi;</button>
+                <button class="b2" onclick="keyInput(2)">(</button>
+                <button class="b2" onclick="keyInput(3)">)</button>
+                <button class="b2" onclick="clearDisplay()">CLR</button>
+                <button class="b2" onclick="keyInput(4)">Cos</button>
+                <button class="b1" onclick="keyInput(5)">7</button>
+                <button class="b1" onclick="keyInput(6)">8</button>
+                <button class="b1" onclick="keyInput(7)">9</button>
+                <button class="b3" onclick="keyInput(8)">&divide;</button>
+                <button class="b2" onclick="keyInput(9)">Tan</button>
+                <button class="b1" onclick="keyInput(10)">4</button>
+                <button class="b1" onclick="keyInput(11)">5</button>
+                <button class="b1" onclick="keyInput(12)">6</button>
+                <button class="b3" onclick="keyInput(13)">&times;</button>
+                <button class="b2" onclick="keyInput(14)">x<sup>y</sup></button>
+                <button class="b1" onclick="keyInput(15)">1</button>
+                <button class="b1" onclick="keyInput(16)">2</button>
+                <button class="b1" onclick="keyInput(17)">3</button>
+                <button class="b3" onclick="keyInput(18)">&minus;</button>
+                <button class="b2" onclick="keyInput(19)">Sqrt</button>
+                <button class="b1" onclick="keyInput(20)">0</button>
+                <button class="b1" onclick="keyInput(21)">.</button>
+                <button class="buttonSpecial" onclick="calc()">=</button>
+                <button class="b3" onclick="keyInput(22)">+</button>
+            </div>
+        </div>
+
+        <script>
+            const display = document.getElementById("display");
+            let finalExpression = "";
+            let expression = [];
+
+            function keyInput(value){
+                if(expression.length <= 30)
+                {
+                    expression.push(value);
+                    evaluateExpression(expression);
+                }
+            }
+
+            function evaluateExpression(expression){
+                let displayExpression = "";
+                let numericExpression = "";
+                
+                //loop through the expression
+                for(let i = 0; i < expression.length; i ++)
+                {
+                    displayExpression += keys[expression[i]].display;
+                    numericExpression += keys[expression[i]].numeric;
+                }
+
+                display.innerHTML = displayExpression;
+                finalExpression = numericExpression;
+            }
+
+            function clearDisplay(){
+                display.innerHTML = "";
+                expression = [];
+            }
+
+            function calc(){
+                let ans = "";
+                closeBrackets(expression);
+                evaluateExpression(expression);
+                try{
+                    ans = math.evaluate(finalExpression);
+                    console.log("ans: " + ans);
+                    expression = convertToExpression(ans);
+                    evaluateExpression(expression);
+                }
+                catch(err){
+                    console.log("error: " + err);
+                    console.log("name: " + err.name);
+                    console.log("message: " + err.message);
+                    
+                    if(err == "too big"){
+                        display.innerHTML = "<span class='errorText'>result too big</span>";
+                    }
+                    else if(err == "infinity"){
+                        display.innerHTML = "<span class='i1 inf'>I</span><span class='i2 inf'>n</span><span class='i3 inf'>f</span><span class='i4 inf'>i</span><span class='i5 inf'>n</span><span class='i6 inf'>i</span><span class='i7 inf'>t</span><span class='i8 inf'>y</span>"
+                    }
+                    else{
+                        display.innerHTML = "<span class='errorText'>error<span>";
+                    }
+                    expression = [];
+                }
+            }
+
+            function convertToExpression(num){
+                let nums = num.toString().split("");
+                let newExpression = [];
+                
+                for(let i = 0; i < nums.length; i ++)
+                {
+                    switch(nums[i]){
+                        case "0":
+                            newExpression.push(20);
+                            break;
+                        case "1":
+                            newExpression.push(15);
+                            break;
+                        case "2":
+                            newExpression.push(16);
+                            break;
+                        case "3":
+                            newExpression.push(17);
+                            break;
+                        case "4":
+                            newExpression.push(10);
+                            break;
+                        case "5":
+                            newExpression.push(11);
+                            break;
+                        case "6":
+                            newExpression.push(12);
+                            break;
+                        case "7":
+                            newExpression.push(5);
+                            break;
+                        case "8":
+                            newExpression.push(6);
+                            break;
+                        case "9":
+                            newExpression.push(7);
+                            break;
+                        case ".":
+                            newExpression.push(21);
+                            break;
+                        case "-":
+                            newExpression.push(18);
+                            break;
+                        case "e":
+                            throw "too big";
+                    }
+                }
+
+                if(num == "Infinity" || num == "-Infinity"){
+                    throw "infinity";
+                }
+
+                return newExpression;
+            }
+
+            function closeBrackets(expression){
+                let counter = 0;
+                for(let i = 0; i < expression.length; i ++){
+                    let num = expression[i];
+                    if(num == 2 || num == 19 || num == 0 || num == 9 || num == 19){
+                        counter += 1;
+                    }
+                    else if(expression[i] == 3){
+                        counter -= 1;
+                    }
+                }
+
+                if(counter > 0){
+                    for(let i = 0; i < counter; i++){
+                        expression.push(3);
+                    }
+                }
+            }
+
+            var keys = [];
+            keys[0] = {
+                name: "sin",
+                display: "sin(",
+                numeric: "sin("
+            }
+            keys[1] = {
+                name: "pi",
+                display: "&pi;",
+                numeric: "pi"
+            }
+            keys[2] = {
+                name: "left bracket",
+                display: "(",
+                numeric: "("
+            }
+            keys[3] = {
+                name: "right bracket",
+                display: ")",
+                numeric: ")"
+            }
+            keys[4] = {
+                name: "cos",
+                display: "cos(",
+                numeric: "cos("
+            }
+            keys[5] = {
+                name: "7",
+                display: "7",
+                numeric: "7"
+            }
+            keys[6] = {
+                name: "8",
+                display: "8",
+                numeric: "8"
+            }
+            keys[7] = {
+                name: "9",
+                display: "9",
+                numeric: "9"
+            }
+            keys[8] = {
+                name: "divide",
+                display: " &divide; ",
+                numeric: "/"
+            }
+            keys[9] = {
+                name: "tan",
+                display: "tan(",
+                numeric: "tan("
+            }
+            keys[10] = {
+                name: "4",
+                display: "4",
+                numeric: "4"
+            }
+            keys[11] = {
+                name: "5",
+                display: "5",
+                numeric: "5"
+            }
+            keys[12] = {
+                name: "6",
+                display: "6",
+                numeric: "6"
+            }
+            keys[13] = {
+                name: "multiply",
+                display: " &times; ",
+                numeric: "*"
+            }
+            keys[14] = {
+                name: "power",
+                display: "^",
+                numeric: "^"
+            }
+            keys[15] = {
+                name: "1",
+                display: "1",
+                numeric: "1"
+            }
+            keys[16] = {
+                name: "2",
+                display: "2",
+                numeric: "2"
+            }
+            keys[17] = {
+                name: "3",
+                display: "3",
+                numeric: "3"
+            }
+            keys[18] = {
+                name: "subtract",
+                display: " &minus; ",
+                numeric: "-"
+            }
+            keys[19] = {
+                name: "sqrt",
+                display: "sqrt(",
+                numeric: "sqrt("
+            }
+            keys[20] = {
+                name: "0",
+                display: "0",
+                numeric: "0"
+            }
+            keys[21] = {
+                name: ".",
+                display: ".",
+                numeric: "."
+            }
+            keys[22] = {
+                name: "plus",
+                display: " + ",
+                numeric: "+"
+            }
+            
+        </script>
+    </body>
+</html>

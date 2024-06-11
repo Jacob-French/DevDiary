@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Jacob French">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flexbox</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+        <style>
+            /*Style the scrollbar*/
+            ::-webkit-scrollbar {
+                width: 12px; /* for vertical scrollbar */
+                height: 12px; /* for horizontal scrollbar */
+            }
+            ::-webkit-scrollbar-track {
+                background: #2c2c2c;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #3e3e3e;
+                border-radius: 6px;
+            }
+            ::-webkit-scrollbar-corner {
+                background: #2c2c2c;
+            }
+            
+            html, body{
+                margin: 0;
+                padding: 0;
+            }
+            
+            .flex_container{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            .flex_container > *{
+                margin: 10px;
+                padding: 10px;
+                border-radius: 7px;
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.203);
+            }
+
+            .panel{
+                height: 400px;
+                flex: 1 0 400px;
+                background-color: tomato;
+            }
+
+            .long_panel{
+                height: 400px;
+                flex: 9 0 400px;
+                background-color: rgb(255, 83, 83);
+            }
+
+            #header{
+                width: 100%;
+                height: 100px;
+                background-color: rgb(255, 129, 240);
+                padding-top: 20px;
+            }
+
+            #footer{
+                width: 100%;
+                height: 200px;
+                background-color: rgb(255, 129, 240);
+            }
+            
+            h1{
+                font-family: "Roboto", sans-serif;
+                color: white;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.277);
+                text-align: center;
+            }
+
+            h2{
+                font-family: "Roboto", sans-serif;
+                color: white;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.153);
+            }
+
+            code{
+                color: white;
+                font-family: "Ubuntu Mono", monospace;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="flex_container">
+            <div id="header">
+                <h1>Responsive Design with CSS Flexbox</h1>
+            </div>
+            <div class="panel">
+                <h2>Flexbox Properties:</h2>
+                <code>
+                    display: flex; <br>
+                    flex-wrap: wrap; <br>
+                    justify-content: space-around;
+                </code>
+            </div>
+            <div class="panel">
+                <h2>Header Properties:</h2>
+                <code>
+                    width: 100%; <br>
+                    height: 100px;
+                </code>
+            </div>
+            <div class="panel">
+                <h2>Square Panel Properties:</h2>
+                <code>
+                    height: 400px; <br>
+                    flex: 1 0 400px;
+                </code>
+            </div>
+            <div class="long_panel">
+                <h2>Long Panel Properties:</h2>
+                <code>
+                    height: 400px; <br>
+                    flex: 9 0 400px;
+                </code>
+            </div>
+            <div class="panel"></div>
+            <div id="footer"></div>
+        </div>
+    </body>
+</html>

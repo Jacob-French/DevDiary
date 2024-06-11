@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Transitions</title>
+        <style>
+            #container{
+                height: auto;
+                width: 350px;
+                margin: auto;
+                margin-top: 70px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                justify-content: flex-start;
+                padding: 10px;
+                background-color: rgb(50, 50, 50);
+                border-radius: 10px;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.177);
+            }
+
+            .item{
+                background-color: rgb(255, 173, 96);
+                height: 40px;
+                border-radius: 10px;
+                cursor: pointer;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .arrow_icon{
+                float: right;
+                margin-top: 5px;
+                transition: transform 0.4s, stroke 0.4s;
+                stroke: #d6d6d6;
+            }
+
+            .arrow_icon_active{
+                transform: rotate(90deg);
+                stroke: #ff6200;
+            }
+
+            .item:hover > .arrow_icon{
+                transform: rotate(90deg);
+            }
+
+            .bubble1{
+                position: absolute;
+                transform: translate(-600px, -300px);
+                fill: rgba(255, 255, 255, 0.2);
+                transition: transform 0.6s;
+            }
+            .item:hover > .bubble1{
+                transform: translate(-100px, -300px);
+            }
+            .bubble2{
+                position: absolute;
+                transform: translate(-600px, -300px);
+                fill: rgba(255, 255, 255, 0.2);
+                transition: transform 0.6s;
+                transition-delay: 0.2s;
+            }
+            .item:hover > .bubble2{
+                transform: translate(-100px, -300px);
+            }
+            
+            .content{
+                margin-bottom: 10px;
+                display: none;
+            }
+
+            .content_item{
+                background-color: rgb(255, 198, 169);
+                height: 15px;
+                border-radius: 7px;
+                width: 0%;
+                transition: width 0.3s;
+                margin: auto;
+                margin-bottom: 5px;
+            }
+
+            .content_item:hover{
+                width: 80%;
+            }
+
+            /* Width and height of the scrollbar */
+            ::-webkit-scrollbar {
+                width: 12px; /* for vertical scrollbar */
+                height: 12px; /* for horizontal scrollbar */
+            }
+
+            /* Background of the scrollbar track */
+            ::-webkit-scrollbar-track {
+                background: #2c2c2c;
+            }
+
+            /* Background of the scrollbar thumb */
+            ::-webkit-scrollbar-thumb {
+                background: #3e3e3e;
+                border-radius: 6px;
+            }
+
+            /* Corner styling */
+            ::-webkit-scrollbar-corner {
+                background: #2c2c2c;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div class="item" id="item0">
+                <svg class="bubble1" viewBox="0 0 1000 1000" width="600px" height="600px">
+                    <circle r="400" cx="500" cy="500" fill="current" />
+                </svg>
+                <svg class="bubble2" viewBox="0 0 1000 1000" width="600px" height="600px">
+                    <circle r="400" cx="500" cy="500" fill="current" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow_icon" id="arrow0" viewBox="0 0 512 512" width="30px" height="30px">
+                    <path d="M112 111v290c0 17.44 17 28.52 31 20.16l247.9-148.37c12.12-7.25 12.12-26.33 0-33.58L143 90.84c-14-8.36-31 2.72-31 20.16z" fill="none" stroke="current" stroke-miterlimit="10" stroke-width="40"/>
+                </svg>
+            </div>
+            <div class="content" id="content0">
+                <div class="content_item" id="i0c0"></div>
+                <div class="content_item" id="i0c1"></div>
+                <div class="content_item" id="i0c2"></div>
+            </div>
+            <div class="item" id="item1">
+                <svg class="bubble1" viewBox="0 0 1000 1000" width="600px" height="600px">
+                    <circle r="400" cx="500" cy="500" fill="current" />
+                </svg>
+                <svg class="bubble2" viewBox="0 0 1000 1000" width="600px" height="600px">
+                    <circle r="400" cx="500" cy="500" fill="current" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow_icon" id="arrow1" viewBox="0 0 512 512" width="30px" height="30px">
+                    <path d="M112 111v290c0 17.44 17 28.52 31 20.16l247.9-148.37c12.12-7.25 12.12-26.33 0-33.58L143 90.84c-14-8.36-31 2.72-31 20.16z" fill="none" stroke="current" stroke-miterlimit="10" stroke-width="40"/>
+                </svg>
+            </div>
+            <div class="content" id="content1">
+                <div class="content_item" id="i1c0"></div>
+                <div class="content_item" id="i1c1"></div>
+                <div class="content_item" id="i1c2"></div>
+            </div>
+            <div class="item" id="item2">
+                <svg class="bubble1" viewBox="0 0 1000 1000" width="600px" height="600px">
+                    <circle r="400" cx="500" cy="500" fill="current" />
+                </svg>
+                <svg class="bubble2" viewBox="0 0 1000 1000" width="600px" height="600px">
+                    <circle r="400" cx="500" cy="500" fill="current" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow_icon" id="arrow2" viewBox="0 0 512 512" width="30px" height="30px">
+                    <path d="M112 111v290c0 17.44 17 28.52 31 20.16l247.9-148.37c12.12-7.25 12.12-26.33 0-33.58L143 90.84c-14-8.36-31 2.72-31 20.16z" fill="none" stroke="current" stroke-miterlimit="10" stroke-width="40"/>
+                </svg>
+            </div>
+            <div class="content" id="content2">
+                <div class="content_item" id="i2c0"></div>
+                <div class="content_item" id="i2c1"></div>
+                <div class="content_item" id="i2c2"></div>
+            </div>
+            <div class="item" id="item3">
+                <svg class="bubble1" viewBox="0 0 1000 1000" width="600px" height="600px">
+                    <circle r="400" cx="500" cy="500" fill="current" />
+                </svg>
+                <svg class="bubble2" viewBox="0 0 1000 1000" width="600px" height="600px">
+                    <circle r="400" cx="500" cy="500" fill="current" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow_icon" id="arrow3" viewBox="0 0 512 512" width="30px" height="30px">
+                    <path d="M112 111v290c0 17.44 17 28.52 31 20.16l247.9-148.37c12.12-7.25 12.12-26.33 0-33.58L143 90.84c-14-8.36-31 2.72-31 20.16z" fill="none" stroke="current" stroke-miterlimit="10" stroke-width="40"/>
+                </svg>
+            </div>
+            <div class="content" id="content3">
+                <div class="content_item" id="i3c0"></div>
+                <div class="content_item" id="i3c1"></div>
+                <div class="content_item" id="i3c2"></div>
+            </div>
+        </div>
+
+        <script>
+            var items = [];
+            items[0] = {
+                item: document.getElementById("item0"),
+                content: document.getElementById("content0"),
+                arrow: document.getElementById("arrow0"),
+                active: false,
+                content_items: [
+                    document.getElementById("i0c0"),
+                    document.getElementById("i0c1"),
+                    document.getElementById("i0c2")
+                ]
+            }
+            items[1] = {
+                item: document.getElementById("item1"),
+                content: document.getElementById("content1"),
+                arrow: document.getElementById("arrow1"),
+                active: false,
+                content_items: [
+                    document.getElementById("i1c0"),
+                    document.getElementById("i1c1"),
+                    document.getElementById("i1c2")
+                ]
+            }
+            items[2] = {
+                item: document.getElementById("item2"),
+                content: document.getElementById("content2"),
+                arrow: document.getElementById("arrow2"),
+                active: false,
+                content_items: [
+                    document.getElementById("i2c0"),
+                    document.getElementById("i2c1"),
+                    document.getElementById("i2c2")
+                ]
+            }
+            items[3] = {
+                item: document.getElementById("item3"),
+                content: document.getElementById("content3"),
+                arrow: document.getElementById("arrow3"),
+                active: false,
+                content_items: [
+                    document.getElementById("i3c0"),
+                    document.getElementById("i3c1"),
+                    document.getElementById("i3c2")
+                ]
+            }
+            
+            items[0].item.addEventListener("click", () => {toggleContent(items[0].item, items[0].content, items[0].arrow, items[0].content_items)});
+            items[1].item.addEventListener("click", () => {toggleContent(items[1].item, items[1].content, items[1].arrow, items[1].content_items)});
+            items[2].item.addEventListener("click", () => {toggleContent(items[2].item, items[2].content, items[2].arrow, items[2].content_items)});
+            items[3].item.addEventListener("click", () => {toggleContent(items[3].item, items[3].content, items[3].arrow, items[3].content_items)});
+
+            function toggleContent(item, content, arrow, content_items){
+                if(!item.active){
+                    content.style.display = "block";
+                    arrow.classList.add("arrow_icon_active");
+                    let reflow = item.offsetHeight;
+                    content_items[1].style.transitionDelay = "0.2s";
+                    content_items[2].style.transitionDelay = "0.4s";
+                    content_items[0].style.width = "80%";
+                    content_items[1].style.width = "80%";
+                    content_items[2].style.width = "80%";
+                    item.active = true;
+                }
+                else{
+                    content_items[0].style.width = "0%";
+                    content_items[1].style.width = "0%";
+                    content_items[2].style.width = "0%";
+                    arrow.classList.remove("arrow_icon_active");
+                    content.style.display = "none";
+                    item.active = false;
+                }
+            }
+        </script>
+    </body>
+</html>
