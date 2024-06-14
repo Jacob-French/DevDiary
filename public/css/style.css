@@ -149,6 +149,7 @@ p{
     align-self: center;
     transform: rotate(180deg);
     margin-right: 10px;
+    transition: transform 0.4s, color 0.4s;
 }
 
 .panel_header{

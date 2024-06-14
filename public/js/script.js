@@ -6,50 +6,6 @@ const activeColor = '#ff66d6';
 const defaultColor = 'rgba(255, 255, 255, 0.121)';
 var activeMilestone = null;
 
-//list of tasks
-tasks[0] = {
-    id: "task0",
-    content_id: "task0_content",
-    arrow_id: "task0_arrow",
-    active: false,
-    milestone: 0
-}
-tasks[1] = {
-    id: "task1",
-    content_id: "task1_content",
-    arrow_id: "task1_arrow",
-    active: false,
-    milestone: 0
-}
-tasks[2] = {
-    id: "task2",
-    content_id: "task2_content",
-    arrow_id: "task2_arrow",
-    active: false,
-    milestone: 0
-}
-tasks[3] = {
-    id: "task3",
-    content_id: "task3_content",
-    arrow_id: "task3_arrow",
-    active: false,
-    milestone: 0
-}
-tasks[4] = {
-    id: "task4",
-    content_id: "task4_content",
-    arrow_id: "task4_arrow",
-    active: false,
-    milestone: 0
-}
-tasks[5] = {
-    id: "task5",
-    content_id: "task5_content",
-    arrow_id: "task5_arrow",
-    active: false,
-    milestone: 1
-}
-
 //list of milestones
 milestones[0] = {
     element: document.getElementById("ms_html-css"),
@@ -108,31 +64,22 @@ function activateElement(element){
 
 //This function is called once an element is activated and the html has been loaded into the content container
 function populateTasks(){
-    for(let i = 0; i < tasks.length; i ++){
-        let task = tasks[i];
-        //check task belongs to active milestone
-        if(milestones[task.milestone].active){
-            let task_el = document.getElementById(tasks[i].id);
-            let content_el = document.getElementById(tasks[i].content_id);
-            task_el.addEventListener("click", () => {
-                toggleTask(tasks[i]);
-            });
-        }
-    }
+    activateHiddenContent(handleHiddenContent);
 }
 
-function toggleTask(task){
-    let content_el = document.getElementById(task.content_id);
-    let arrow_el = document.getElementById(task.arrow_id);
+function handleHiddenContent(button, content){
+    let visible = getComputedStyle(content).display != "none";
 
-    if(task.active){
-        content_el.style = "display: none";
-        arrow_el.style = "transform: rotate(180deg)";
-        task.active = false;
-    }
-    else{
-        content_el.style = "display: block";
-        arrow_el.style = "transform: rotate(90deg); color:" + activeColor + ";";
-        task.active = true;
+    let children = button.children;
+    for(let i = 0; i < children.length; i ++){
+        if(children[i].classList.contains("ui_arrow")){
+            let arrow = children[i];
+            if(visible){
+                arrow.style = "transform: rotate(90deg); color:" + activeColor + ";";
+            }
+            else{
+                arrow.style = "transform: rotate(180deg)";
+            }
+        }
     }
 }
