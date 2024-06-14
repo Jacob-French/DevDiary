@@ -30,7 +30,7 @@
     grid-row: 2;
     padding: 10px;
     padding-right: 15px;
-    overflow: auto;
+    overflow-y: scroll;
 }
 
 #content_menu{

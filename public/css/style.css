@@ -203,6 +203,41 @@ p{
     flex: 0, 0, 15px;
 }
 
+.button_backdrop{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    z-index: 1;
+    width: 100%;
+    height: 20px;
+    background-color: rgb(255, 109, 153);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.quiz_button{
+    display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 30px;
+    background-color: rgb(255, 87, 137);
+    width: 100px;
+    height: 40px;
+    border-style: none;
+    font-family: "Source Sans 3", sans-serif;
+    color: white;
+    font-size: 1.5em;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.345);
+    border-radius: 7px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.quiz_button_text{
+    z-index: 3;
+    position: relative;
+}
+
 a{
     text-decoration: none;
 }
