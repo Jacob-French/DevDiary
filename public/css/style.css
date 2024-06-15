@@ -223,11 +223,11 @@ p{
     margin-top: 30px;
     background-color: rgb(255, 87, 137);
     width: 100px;
-    height: 40px;
+    height: 35px;
     border-style: none;
     font-family: "Source Sans 3", sans-serif;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.3em;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.345);
     border-radius: 7px;
     overflow: hidden;
